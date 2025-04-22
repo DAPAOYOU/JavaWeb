@@ -1,0 +1,1 @@
+主要内容在test.java.com.itheima.testMyBatisTest 和 BrandMapper.java 和 BrandMapper.xml

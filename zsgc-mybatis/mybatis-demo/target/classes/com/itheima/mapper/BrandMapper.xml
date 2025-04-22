@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace:名称空间
+    这个的路径要和java目录里面的UserMapper的路径一样
+-->
+
+<mapper namespace="com.itheima.mapper.BrandMapper">
+
+
+<!--    <select id="selectAll" resultType="brand">
+        select * from tb_brand;
+        </select>
+-->
+
+<!--
+实体类属性名 和 数据库的列名不同是不能导入的,结果是null
+        这里用resultMap解决问题
+-->
+
+    <resultMap id = "brandResultMap" type = "brand">
+        <!--
+            id:完成主键字段的映射column:表的列名property:实体类的属性名result:完成一般字段的映射
+            column:表的列名
+            property:实体类的属性名
+        -->
+        <result column = "brand_name" property="brandName"/>
+        <result column = "company_name" property="companyName"/>
+    </resultMap>
+
+    <!--    在select的标签中，用resultMap属性替换resultType属性 -->
+    <select id = "selectAll" resultMap="brandResultMap">
+        select * from tb_brand;
+    </select>
+
+<!--   查看详情
+        * 参数占位符：
+            1. #{} : 会将其换成 ?，防止sql注入问题
+            2. ${} : 直接拼接，可能存在sql注入问题
+        * 使用时机
+            1. 参数传递时用 #{}
+            2. 列名不固定时用 ${}
+        * 参数类型
+            prepareType 指定传参类型
+            可以不写省略，一般都省略
+        * 特殊字符处理
+            1.转义
+                <select id = "selectById" parameterType = "int" resultType = "com.itheima.pojo.Brand">
+                    select * from tb_brand where id &lt; #{id};  //  &lt;  是  <  ,  > 不需要转义
+                </select>
+            2.CDATA区 : 打CD，然后按ENTER，自动生成，在中间输入要输入的内容就行
+                <![CDATA[
+                    <
+                ]]>
+  -->
+    <select id = "selectById" parameterType = "int" resultMap = "brandResultMap">
+        select * from tb_brand where id = #{id};
+    </select>
+
+<!--
+        条件查询（重点）
+-->
+<!--    <select id = "selectByCondition" resultMap = "brandResultMap">
+        select * from tb_brand
+        where   status = #{status}
+                and company_name like #{companyName}
+                and brand_name like #{brandName}；
+        </select>
+        -->
+
+    <!--
+            多条件动态查询（重点）
+            *if
+                逻辑判断的，test="这里写逻辑表达式"
+            问题：如果第一个条件null掉了，sql语句就会变成select * from tb_brand where and company_name like #{companyName}...
+            可以看到，where 后面直接跟了 and 语法错误
+            解决方案：可以在where后面加一个恒等式 1=1 ，然后if语句里面的全加and
+
+            或者用<where>标签来解决      (常    用     好     用)
+    -->
+    <select id = "selectByCondition" resultMap = "brandResultMap">
+        select * from tb_brand
+        <!-- where 1 = 1 -->
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="companyName != null and companyName != '' ">
+                and company_name like #{companyName}
+            </if>
+            <if test="brandName != null and brandName != '' ">
+                and brand_name like #{brandName}
+            </if>
+        </where>
+    </select>
+
+    <!--
+            单条件动态查询（重点）
+
+            如果一个条件都没有 ，就会出现语法错误， where后面什么都没有， 这时候来个1=1保底
+            用<otherwise>语句
+            或者用<where>标签来解决      (常    用     好     用)
+    -->
+    <select id="selectByConditionSingle" resultMap = "brandResultMap">
+        select * from tb_brand
+        <where>
+            <choose>
+                <when test="status != null">
+                    status = #{status}
+                </when>
+                <when test="companyName != null and companyName != '' ">
+                    company_name like #{companyName}
+                </when>
+                <when test="brandName != null and brandName != '' ">
+                    brand_name like #{brandName}
+                </when>
+                <!--
+                    <otherwise>
+                        // 如果一个条件都没有 ，就会出现语法错误， where后面什么都没有， 这时候来个1=1保底 &ndash;&gt;
+                        1 = 1
+                    </otherwise>
+                -->
+            </choose>
+        </where>
+    </select>
+
+    <!-- 增加操作
+        useGeneratedKeys="true" keyProperty="id" 用来返回主键
+    -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand (brand_name,company_name,ordered,description,status)
+        values(#{brandName},#{companyName},#{ordered},#{description},#{status})
+    </insert>
+
+    <!-- 修改操作
+    -->
+    <update id="update">
+        update tb_brand
+        <set>
+            <if test = "companyName != null and companyName != '' ">
+                company_name = #{companyName},
+            </if>
+            <if test = "brandName != null and brandName != '' ">
+                brand_name = #{brandName},
+            </if>
+            <if test = "id != null ">
+                id = #{id},
+            </if>
+            <if test = "ordered != null">
+                ordered = #{ordered},
+            </if>
+            <if test = "status != null ">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <!--根据id删除 -->
+    <delete id="deleteById">
+        delete from tb_brand where id = #{id};
+    </delete>
+
+    <!--根据id批量删除
+        mybatis会把参数数组封装为map集合
+        这样的形式 ：  array = 数组
+        collection="ids"这个要改成"array"
+        但如果用@Param,就直接写别名就行
+        open和close分别是在这个foreach前后分别加什么东西
+     -->
+    <delete id="deleteByIds">
+        delete from tb_brand
+        where id
+        in (
+        <foreach collection="ids" item="id" separator="," open="" close="">
+            #{id}
+        </foreach>
+        );
+    </delete>
+</mapper>
