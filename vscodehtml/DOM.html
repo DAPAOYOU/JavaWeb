@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src="on.gif" id="tupian">
+    <p>嘻嘻</p>
+    <p>哈哈</p>
+
+    <div class="cls">嘻哈教育</div>
+    <div class="cls">灰太狼</div>
+    
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 火锅
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+
+<script>
+    //DOM对象  document对象
+//     Element:元素对象
+// 获取:使用Document对象的方法来获取
+// * getElementByld:根据id属性值获取，返回一个Element对象1.
+// * getElementsByTagName:根据标签名称获取，返回Element对象数组
+// * getElementsByName:根据name属性值获取，返回Element对象数组
+// * getElementsByClassName:根据class属性值获取，返回Element对象数组
+
+    var a = document.getElementById("tupian");
+    // document.writeln(a);
+    a.src = "off.gif";
+
+    /*
+        *innerHTML:获取或设置元素的内容     改内容
+        *style:设置元素的样式              改样式
+        *所有的元素对象都有以上两个属性
+    */
+
+    var b =document.getElementsByTagName("p");
+    // document.writeln(b.length);
+    // for (var i = 0; i < b.length; i++) {
+    //     document.writeln(b[i]);
+    // }
+    // i=0;
+    for (var i=0;i<b.length;i++){
+        b[i].innerHTML="哈哈ha";
+        b[i].style.color="red";
+    }
+    
+    var c = document.getElementsByName("hobby");
+    // document.writeln(c.length);
+    // for (var i = 0; i < c.length; i++) {
+    //     document.writeln(c[i]);
+    // }
+    // i=0;
+    for(var i=0;i<c.length;i++){
+        c[i].checked=true;
+    }
+
+    var d = document.getElementsByClassName("cls");
+    // document.writeln(d.length);
+    // for (var i = 0; i < d.length; i++) {
+    //     document.writeln(d[i]);
+    // }
+    // i=0;
+
+    var e=document.getElementsByTagName("div");
+    // document.writeln(e.length);
+    // for (var i = 0; i < e.length; i++) {
+    //     document.writeln(e[i]);
+    // }
+
+</script>
+</body>
+</html>

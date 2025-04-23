@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src="on.gif" id="tupian">
+    <p>嘻嘻</p>
+    <p>哈哈</p>
+
+    <div class="cls">嘻哈教育</div>
+    <div class="cls">灰太狼</div>
+    
+    <input type="checkbox" name="hobby"> 电影
+    <input type="checkbox" name="hobby"> 火锅
+    <input type="checkbox" name="hobby"> 游戏
+    <br>
+    <!-- 第一种方式  不好 -->
+    <input type="button" value="点我" onclick="on()"> 
+    <br>
+    <!-- 第二种方式  好 -->
+    <input type="button" value="点点我" id="btn">
+    
+
+<script>
+    //事件绑定
+    function on(){
+        alert("我被点了");
+    }
+    document.getElementById("btn").onclick=function(){
+        alert("我被点点了");
+    }
+    //常见事件  
+    //去w3school上找javascript参考书的HTML DOM EVENT看，用哪个，看哪个
+    /*
+        *    onclick 鼠标单击事件
+        *    onblur  元素失去焦点
+        *    onfocus元素获得焦点
+        *    onload某个页面或图像被完成加载
+        *    onsubmit当表单提交时触发该事件
+        *    onkeydown某个键盘的键被按下
+        *    onmouseover鼠标被移到某元素之上
+        *    onmouseout鼠标从某元素移开v
+    */
+
+</script>
+</body>
+</html>

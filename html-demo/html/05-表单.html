@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- action是url，数据传递到哪里，#代表自身 method一般用post
+            method有post和get
+                get数据可见（会显示在浏览器地址栏，可能被缓存或记录在历史记录中）
+                有长度限制
+            post没有长度限制，不会显示，更安全
+ -->
+  <form action="#" method="post">
+      <label for="username">用户名:</label>
+      <input type="text" name="username" id="username"><br>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password"><br>
+    <!--单选框只能选一个的话，让name属性值一样就行了
+        value是提交到服务端的数据，和上面要输入的数据一样
+    -->
+      性别:<input type="radio" name="gender" value="0" id="male"> <label for="male">男</label>
+          <input type="radio" name="gender" value="1" id="female"> <label for="female">女</label>
+        <br>
+      爱好:
+      <input type="checkbox" name="hobby" value="1"> 旅游
+      <input type="checkbox" name="hobby" value="1"> 电影
+      <input type="checkbox" name="hobby" value="1"> 游戏
+      <br>
+      头像:
+    <input type="file">
+    <br>
+      城市:
+      <select>
+          <option>北京</option>
+          <option>上海</option>
+          <option>广州</option>
+      </select>
+      <input type="hidden" name="id" value="123">
+      <br>
+      <br>
+      <input type="reset" value="重置">
+      <br>
+      <br>
+      <input type="button" value="按钮">
+      <br>
+      <br>
+      <input type="submit" value = "注册">
+  </form>
+</body>
+</html>

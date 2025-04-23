@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 分号可有可无 -->
+    <!-- (window.)alert()  弹出警告框 -->
+    <!-- document.write()  写入html -->
+    <!-- console.log()     写入浏览器控制台 -->
+    <script>
+      alert("hello js");
+
+      document.write("hello js2");
+
+      console.log("hello js3");
+
+      /*
+        * 运算符都一样，除了多了一个 === 全等
+        * == 先判断类型，不一样的话转成一样的类型，再判断是不是相等
+        * === 先判断类型，不一样的话直接false
+      */
+      var age1 = 20;
+      var age2 ="20";
+      alert(age1 == age2); //true
+      alert(age1 === age2); //false
+
+      var str = "20";
+      alert(parseInt(str) + 1);
+      //类型转换一般用parseXxx
+
+      //或者把其他类型转数字，在前面加+
+      var t = +"20"
+      alert(t);
+
+      //再js里面， if(str) 和 if(str!=null && str.length()>0) 的效果一样
+
+    </script>
+</body>
+</html>
