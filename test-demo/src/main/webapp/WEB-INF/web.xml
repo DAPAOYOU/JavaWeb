@@ -1,0 +1,20 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <display-name>Archetype Created Web Application</display-name>
+<!-- 创建一个urlxmltest的类，不用注解写url，老版使用xlm配置，麻烦 -->
+<!--  &lt;!&ndash; servlet全类名 &ndash;&gt;-->
+<!--  <servlet>-->
+<!--    <servlet-name>urlxmltest</servlet-name>-->
+<!--    <servlet-class>com.tomcat.web.urlxmltest</servlet-class>-->
+<!--  </servlet>-->
+<!--  &lt;!&ndash; servlet 访问路径&ndash;&gt;-->
+<!--  <servlet-mapping>-->
+<!--    <servlet-name>urlxmltest</servlet-name>-->
+<!--    <url-pattern>/urlxmltest</url-pattern>-->
+<!--  </servlet-mapping>-->
+
+</web-app>
