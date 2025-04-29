@@ -1,0 +1,19 @@
+install:install-file
+    -Dfile=D:\tomcat\apache-maven-3.6.1\lib\jstl-1.2.jar
+    -DgroupId=jstl
+    -DartifactId=jstl
+    -Dversion=1.2
+    -Dpackaging=jar
+
+
+    install:install-file
+    -Dfile=D:\tomcat\apache-maven-3.6.1\lib\standard-1.1.2.jar
+    -DgroupId=taglibs
+    -DartifactId=standard
+    -Dversion=1.1.2
+    -Dpackaging=jar
+
+
+怎么导入jar包到本Dfile是下载的jar包位置
+依次groupid   artifactid   version
+然后运行这个命令在idea 右边 maven的执行maven目标
