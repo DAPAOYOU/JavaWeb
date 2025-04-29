@@ -1,4 +1,6 @@
+com\tomcat\pojo\Brand.class
 com\tomcat\web\request\demo_5.class
+com\tomcat\web\jstl\Demo1.class
 com\tomcat\util\SqlSessionFactoryUtils.class
 com\tomcat\web\response\Demo1.class
 com\tomcat\web\request\Request.class
