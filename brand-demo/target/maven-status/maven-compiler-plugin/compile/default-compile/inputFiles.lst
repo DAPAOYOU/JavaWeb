@@ -1,9 +1,0 @@
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\mapper\BrandMapper.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\pojo\Brand.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\service\BrandService.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\util\SqlSessionFactoryUtils.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\web\AddServlet.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\web\DeleteServlet.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\web\SelectAllServlet.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\web\SelectByIdServlet.java
-D:\tomcat\javaweb\JavaWeb-资料\day10-JSP\day10-JSP\代码\brand-demo\src\main\java\com\itheima\web\UpdateServlet.java
